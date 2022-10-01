@@ -9,5 +9,5 @@ void main() {
 
   //2. exp1 ?? exp2
   //If exp1 is non-Null, returns its value; else return exp2
-  //以廢棄 因為null safety
+  //已廢棄 因為null safety
 }
