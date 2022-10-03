@@ -1,4 +1,6 @@
 //Exception Handling: 另外處理可能會有run-time error的地方
+//try, on, catch, finally
+
 void main() {
   //Case 1: When you know the exception to be thrown, us ON Clause
   try {
@@ -25,4 +27,32 @@ void main() {
   }
 
   //Case 4: Whether there is an Exception or not, FINALLY Clause is always Executed
+  try {
+    int result = 12 ~/ 0;
+    print("The result is $result");
+  } catch (e) {
+    print("The excpetion thrown is $e");
+  } finally {
+    print("This is Finally Clause, always executed");
+  }
+
+  //Case 5: Custom Exception 自己定義Exception
+  try {
+    depositMoney(-200);
+  } on depositException catch (e) {
+    print(e.errorMessage());
+  }
+}
+
+//for Case 5
+class depositException implements Exception {
+  String errorMessage() {
+    return "You can not enter amount less than 0";
+  }
+}
+
+void depositMoney(int amount) {
+  if (amount < 0) {
+    throw new depositException();
+  }
 }
