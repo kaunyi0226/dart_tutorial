@@ -3,13 +3,15 @@
 
 void main() {
   //Case 1: When you know the exception to be thrown, us ON Clause
+  print("Case 1");
   try {
     int result = 12 ~/ 0;
     print("The result is $result");
   } on IntegerDivisionByZeroException {
     print("Cannot be divided by zero!");
   }
-  //Case 1: When you don't know the exception, us CATCH Clause
+  //Case 2: When you don't know the exception, us CATCH Clause
+  print("Case 2");
   try {
     int result = 12 ~/ 0;
     print("The result is $result");
@@ -18,6 +20,7 @@ void main() {
   }
 
   //Case3: Using STACK TRACE to know the events occured before Exception was thrown
+  print("Case 3");
   try {
     int result = 12 ~/ 0;
     print("The result is $result");
@@ -27,6 +30,7 @@ void main() {
   }
 
   //Case 4: Whether there is an Exception or not, FINALLY Clause is always Executed
+  print("Case 4");
   try {
     int result = 12 ~/ 0;
     print("The result is $result");
@@ -37,6 +41,7 @@ void main() {
   }
 
   //Case 5: Custom Exception 自己定義Exception
+  print("Case 5");
   try {
     depositMoney(-200);
   } on depositException catch (e) {

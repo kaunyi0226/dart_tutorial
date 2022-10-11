@@ -5,8 +5,8 @@ void main() {
   printLove();
   printCountries("Taiwan", "Japan");
 
-  findVolume(5, width: 4, height: 10);
-  print(find_volume(5, 3));
+  findVolume(5, height: 5, width: 5);
+  print(find_volume(5, 3)); //150
 }
 
 int add(int num1, int num2) {
@@ -32,8 +32,8 @@ void printCountries(String name1, String name2, [var name3]) {
   print("$name3");
 }
 
-//四、Named Parameters: 更新後變數名前面要加required
-void findVolume(int length, {required int width, required int height}) {
+//四、Named Parameters
+void findVolume(int length, {var width, var height}) {
   print("${length * width * height}");
 }
 

@@ -68,4 +68,5 @@ void main() {
   //四、強型別注意: Dart的除法只會返回double!!  但可以使用"取整除法~/"
   //int c = 12/4 ; 會出錯(double 不能assign給 int)
   int c = 12 ~/ 4;
+  print(c);
 }
