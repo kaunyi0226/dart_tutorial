@@ -1,3 +1,23 @@
+void main() {
+  var benz = Car("Benz", 10);
+  benz.horn();
+
+  var Karen = Student.firstGrade("Karen");
+  Karen.sayHello();
+
+  var Banana = Person("Banana", 90);
+  print(Banana.name);
+  print(Banana._age); //Dart private的尺度是整個檔案，不侷限在class中
+}
+
+class Person {
+  //object
+  String? name; //doesnt allow null ----add ?
+  int? _age;
+
+  Person(this.name, this._age);
+}
+
 class Car {
   String? name;
   double? speed;
@@ -24,24 +44,54 @@ class Student {
   }
 }
 
-class Person {
-  //object
-  String? name; //doesnt allow null ----add ?
-  int? age;
+//封裝
+class Employee {
+  // Private properties
+  int? _id;
+  String? _name;
 
-  Person({this.name, this.age = 30}); //讀到name就存到物件的name中，讀到age就存到物件的age中
-  /*Person(String Name, int Age){
-    this.name = Name;
-    this.Age = Age;
-  }*/
+// Getter method to access private property _id
+  int getId() {
+    return _id!;
+  }
+
+// Getter method to access private property _name
+  String getName() {
+    return _name!;
+  }
+
+// Setter method to update private property _id
+  void setId(int id) {
+    this._id = id;
+  }
+
+// Setter method to update private property _name
+  void setName(String name) {
+    this._name = name;
+  }
 }
 
-void main() {
-  var Karen = Student.firstGrade("Karen");
-  Karen.sayHello();
+//Practice Bank Account
+class Account {
+  String? _user;
+  String? _password;
+  int _money = 0;
 
-  var p1 = Person(name: 'Max'); //創造新物件(dart2後不一定要加new)
-  var p2 = Person(name: 'Kevin', age: 20);
-  print(p1.age);
-  print(p2.age);
+  Account(this._user, this._password);
+
+  String getUser() => _user!;
+  void setUser(String newName) => this._user = newName;
+
+  int readMoney() => _money;
+  void addMoney(int addAmount) => this._money += addAmount;
+  void minusMoney(int minusAmount) => this._money -= minusAmount;
+
+  void resetPW(String oldPW, String newPW) {
+    if (oldPW == _password) {
+      _password = newPW;
+      print("更改密碼成功!");
+    } else {
+      print("密碼輸入錯誤，更改密碼失敗!");
+    }
+  }
 }
