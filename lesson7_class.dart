@@ -16,6 +16,8 @@ class Person {
   int? _age;
 
   Person(this.name, this._age);
+
+  void setName(String newName) => this.name = newName;
 }
 
 class Car {
